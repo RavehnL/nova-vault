@@ -23,6 +23,16 @@ The vault is a shared state machine between human and AI:
 | Semantic | Obsidian vault (03_Knowledge) | What we know |
 | Deep Synthesis | Open Notebook | Multi-document analysis |
 
+## File Conventions
+
+Every vault document SHOULD include in its frontmatter:
+- `date: YYYY-MM-DD` — the calendar date
+- `timestamp: YYYY-MM-DDTHH:MM:SS±HH:MM` — precise wall-clock time
+- `report: NR-NNN` — sequential report number (for generated reports)
+- `status: active | draft | completed` — lifecycle state
+
+Perishable or auto-generated files (reports, session logs) MUST include `timestamp`. Static reference files (manifestos, templates) need only `date`.
+
 ## Agent Rules
 
 1. Always log completions and errors to today's Daily Note

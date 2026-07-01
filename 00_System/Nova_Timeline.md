@@ -1,4 +1,5 @@
 type: system_core_timeline
+date: 2026-07-01
 status: active
 current_phase: Phase 1
 

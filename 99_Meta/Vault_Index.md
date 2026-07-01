@@ -1,4 +1,5 @@
 type: meta_index
+date: 2026-07-01
 status: active
 
 # Vault Index

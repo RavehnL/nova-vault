@@ -1,5 +1,6 @@
 type: daily_log
 date: {{date}}
+timestamp: {{timestamp}}
 milestone_day:
 status: morning
 
