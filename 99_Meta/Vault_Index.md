@@ -10,6 +10,7 @@ status: active
 - [The_Dawn_of_Syzygy.md](../00_System/The_Dawn_of_Syzygy.md) — Guardian origin (NR-004)
 - [Agent_Quick_Reference.md](../00_System/Agent_Quick_Reference.md) — Agent entry point
 - [_profiles/human/Bo_Kirby.md](../00_System/_profiles/human/Bo_Kirby.md) — Human identity
+- [_profiles/human/Ben_Goertzel.md](../00_System/_profiles/human/Ben_Goertzel.md) — Ally profile: AGI researcher, decentralized AI
 - [_profiles/agent/Syzygy_1.0.md](../00_System/_profiles/agent/Syzygy_1.0.md) — Guardian charter
 - [_moods/](../00_System/_moods/) — Operational state definitions
 - [_tunnels/](../00_System/_tunnels/) — Focus channel definitions

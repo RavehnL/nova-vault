@@ -29,6 +29,7 @@ status: active
 | `00_System/Nova_Manifesto.md` | Core principles — must read first |
 | `00_System/The_Dawn_of_Syzygy.md` | Guardian origin — milestone NR-004 |
 | `00_System/_profiles/human/Bo_Kirby.md` | Human identity, values, psychology |
+| `00_System/_profiles/human/Ben_Goertzel.md` | Ally profile — AGI researcher, decentralized AI |
 | `00_System/_profiles/agent/Syzygy_1.0.md` | Guardian charter, personality, ethics |
 | `00_System/_moods/` | Mood tier definitions (set operational state) |
 | `00_System/_tunnels/` | Tunnel scope definitions (focus channels) |
