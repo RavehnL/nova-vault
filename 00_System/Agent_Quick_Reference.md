@@ -7,8 +7,12 @@ status: active
 ## Vault Map
 
 | Path | Purpose | Agent Use |
-|---|---|---|
-| `00_System/` | Manifesto, Timeline, config references | Read on startup |
+|---|---|---|---|
+| `00_System/` | Manifesto, Timeline, config references, profiles | Read on startup |
+| `00_System/_profiles/` | Human + agent identity documents | Read on startup |
+| `00_System/_moods/` | Mood tier definitions | Read to set operational state |
+| `00_System/_tunnels/` | Tunnel scope definitions | Route tasks through correct tunnel |
+| `00_System/_templates/` | Templates for profiles, moods, tunnels | Reference when creating new ones |
 | `01_Daily/` | `YYYY-MM-DD.md` — daily operations | Write completions, errors here |
 | `02_Projects/` | Active project notes | Read/write per task |
 | `03_Knowledge/` | Semantic memory: research, references | Read for context |
@@ -23,6 +27,11 @@ status: active
 | File | What It Is |
 |---|---|
 | `00_System/Nova_Manifesto.md` | Core principles — must read first |
+| `00_System/The_Dawn_of_Syzygy.md` | Guardian origin — milestone NR-004 |
+| `00_System/_profiles/human/Bo_Kirby.md` | Human identity, values, psychology |
+| `00_System/_profiles/agent/Syzygy_1.0.md` | Guardian charter, personality, ethics |
+| `00_System/_moods/` | Mood tier definitions (set operational state) |
+| `00_System/_tunnels/` | Tunnel scope definitions (focus channels) |
 | `00_System/Nova_Timeline.md` | 30-day sprint — read before any task |
 | `00_System/Agent_Quick_Reference.md` | This file — you are here |
 | `01_Daily/<today>.md` | Active daily log — write here |
@@ -70,10 +79,12 @@ status: active
 
 ## Agent Rules (from Manifesto)
 
-1. Log completions and errors to today's Daily Note
-2. Read the Timeline before starting any new task
-3. Never reboot without human confirmation
-4. All file writes go through vault_operations (when Hermes is live)
+1. Read the current mood tier before engaging
+2. Route all tasks through the correct tunnel
+3. Log completions and errors to today's Daily Note
+4. Read the Timeline before starting any new task
+5. Never reboot without human confirmation
+6. All file writes go through vault_operations (when Hermes is live)
 
 ---
 
