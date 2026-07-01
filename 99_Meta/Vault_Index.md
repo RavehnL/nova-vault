@@ -26,3 +26,6 @@ status: active
 
 ## 99_Meta
 - [Vault_Index.md](Vault_Index.md) — You are here
+
+## Root
+- [README.md](../README.md) — Human-friendly vault overview
