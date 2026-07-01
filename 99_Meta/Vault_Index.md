@@ -7,6 +7,7 @@ status: active
 ## 00_System
 - [Nova_Timeline.md](../00_System/Nova_Timeline.md) — 30-day stabilization sprint
 - [Nova_Manifesto.md](../00_System/Nova_Manifesto.md) — Core principles & sovereignty rules
+- [Agent_Quick_Reference.md](../00_System/Agent_Quick_Reference.md) — Agent entry point: paths, ports, configs
 
 ## 01_Daily
 - [2026-07-01.md](../01_Daily/2026-07-01.md) — Day 1 foundation

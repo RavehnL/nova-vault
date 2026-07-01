@@ -11,10 +11,14 @@
             "id": "f7d96f2065544e07",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "99_Meta/Vault_Index.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Vault_Index"
             }
           }
         ]
@@ -178,6 +182,7 @@
   },
   "active": "f7d96f2065544e07",
   "lastOpenFiles": [
+    "00_System/Agent_Quick_Reference.md",
     "99_Meta/Systems_Audit_Report.md"
   ]
 }

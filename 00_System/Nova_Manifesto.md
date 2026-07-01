@@ -33,6 +33,14 @@ Every vault document SHOULD include in its frontmatter:
 
 Perishable or auto-generated files (reports, session logs) MUST include `timestamp`. Static reference files (manifestos, templates) need only `date`.
 
+## Getting Started
+
+New agents should read, in order:
+1. `00_System/Nova_Manifesto.md` — this file
+2. `00_System/Agent_Quick_Reference.md` — paths, ports, configs, conventions
+3. `00_System/Nova_Timeline.md` — current phase and daily goals
+4. `01_Daily/<today>.md` — active log (append here after tasks)
+
 ## Agent Rules
 
 1. Always log completions and errors to today's Daily Note
