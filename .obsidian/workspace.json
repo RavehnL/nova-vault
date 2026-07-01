@@ -11,10 +11,14 @@
             "id": "db4da97b6dd1f10a",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "99_Meta/Systems_Audit_Report.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Systems_Audit_Report"
             }
           }
         ]
@@ -176,8 +180,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "20c8aca29ccb2e26",
+  "active": "db4da97b6dd1f10a",
   "lastOpenFiles": [
+    "00_System/_design/Syzygy_Palette.md",
+    "00_System/_design",
     "00_System/_profiles/human/Ben_Goertzel.md",
     "00_System/_templates/tunnel.md",
     "00_System/_templates/mood_tier.md",

@@ -1,0 +1,245 @@
+/* ===== Syzygy Theme — Obsidian CSS Snippet ===== */
+/* Palette: Void Dark, Solar Gold, Lunar Silver, Aurora Teal */
+/* Version: 1.0 — 2026-07-01 */
+
+/* ---- CSS Variables ---- */
+:root {
+  --syzygy-void: #0B1026;
+  --syzygy-dark: #0D1117;
+  --syzygy-slate: #161B25;
+  --syzygy-surface: #1C2333;
+  --syzygy-border: #242B3D;
+  --syzygy-gold: #F5C542;
+  --syzygy-gold-dim: #C9A235;
+  --syzygy-silver: #C0C5CE;
+  --syzygy-teal: #3DD6C8;
+  --syzygy-teal-dim: #2DA89D;
+  --syzygy-starlight: #E6E8EC;
+  --syzygy-moonstone: #8B92A2;
+  --syzygy-flare: #FF6B4A;
+}
+
+/* ---- Theme Overrides ---- */
+.theme-dark {
+  /* Backgrounds */
+  --background-primary: var(--syzygy-dark);
+  --background-primary-alt: var(--syzygy-slate);
+  --background-secondary: var(--syzygy-dark);
+  --background-secondary-alt: var(--syzygy-slate);
+  --background-modifier-border: var(--syzygy-border);
+  --background-modifier-form-field: var(--syzygy-slate);
+  --background-modifier-message: var(--syzygy-slate);
+
+  /* Text */
+  --text-normal: var(--syzygy-starlight);
+  --text-muted: var(--syzygy-silver);
+  --text-faint: var(--syzygy-moonstone);
+  --text-accent: var(--syzygy-teal);
+  --text-accent-hover: var(--syzygy-gold);
+  --text-error: var(--syzygy-flare);
+  --text-success: var(--syzygy-teal);
+  --text-selection: rgba(61, 214, 200, 0.15);
+  --text-on-accent: var(--syzygy-dark);
+
+  /* Interactive */
+  --interactive-accent: var(--syzygy-teal);
+  --interactive-accent-hover: var(--syzygy-gold);
+  --interactive-normal: var(--syzygy-slate);
+  --interactive-hover: var(--syzygy-border);
+
+  /* Headings */
+  --h1-color: var(--syzygy-gold);
+  --h2-color: var(--syzygy-gold);
+  --h3-color: var(--syzygy-starlight);
+  --h4-color: var(--syzygy-silver);
+  --h5-color: var(--syzygy-moonstone);
+  --h6-color: var(--syzygy-moonstone);
+
+  /* Links */
+  --link-color: var(--syzygy-teal);
+  --link-color-hover: var(--syzygy-gold);
+  --link-unresolved-color: var(--syzygy-moonstone);
+
+  /* Tags */
+  --tag-color: var(--syzygy-teal-dim);
+  --tag-background: rgba(61, 214, 200, 0.08);
+  --tag-background-hover: rgba(61, 214, 200, 0.15);
+
+  /* Code */
+  --code-normal: var(--syzygy-silver);
+  --code-background: var(--syzygy-void);
+  --code-size: 0.85em;
+
+  /* Blockquotes */
+  --blockquote-border-color: var(--syzygy-gold);
+  --blockquote-background-color: rgba(245, 197, 66, 0.04);
+
+  /* Tables */
+  --table-header-background: var(--syzygy-slate);
+  --table-header-border: var(--syzygy-border);
+  --table-border: var(--syzygy-border);
+
+  /* Graph */
+  --graph-text: var(--syzygy-moonstone);
+  --graph-line: var(--syzygy-border);
+  --graph-node: var(--syzygy-silver);
+  --graph-node-unresolved: var(--syzygy-moonstone);
+  --graph-node-focused: var(--syzygy-gold);
+  --graph-node-tag: var(--syzygy-teal);
+  --graph-node-attachment: var(--syzygy-flare);
+
+  /* Canvas */
+  --canvas-color: 245, 197, 66;
+  --canvas-background: var(--syzygy-dark);
+  --canvas-dot-color: rgba(192, 197, 206, 0.12);
+
+  /* Shadows */
+  --shadow-s: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-m: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-l: 0 8px 24px rgba(0, 0, 0, 0.6);
+
+  /* Scrollbar */
+  --scrollbar-bg: transparent;
+  --scrollbar-thumb-bg: var(--syzygy-border);
+  --scrollbar-active-thumb-bg: var(--syzygy-moonstone);
+}
+
+/* ---- Highlights ---- */
+.theme-dark mark {
+  background: rgba(245, 197, 66, 0.2);
+  color: var(--syzygy-gold);
+}
+
+/* ---- Checkboxes ---- */
+.theme-dark input[type="checkbox"]:checked {
+  background-color: var(--syzygy-teal);
+}
+
+/* ---- Search ---- */
+.theme-dark .search-result-file-matched-text {
+  background: rgba(245, 197, 66, 0.2);
+  color: var(--syzygy-gold);
+}
+
+/* ---- Active states ---- */
+.theme-dark .nav-file-title.is-active,
+.theme-dark .nav-folder-title.is-active {
+  border-left: 2px solid var(--syzygy-gold);
+  background: rgba(245, 197, 66, 0.04);
+}
+
+/* ---- Cursor / caret ---- */
+.theme-dark .cm-cursor,
+.theme-dark .cm-cursor ~ .cm-cursor {
+  border-left-color: var(--syzygy-gold);
+}
+
+/* ---- Selection ---- */
+.theme-dark .cm-s-obsidian span.cm-searching {
+  background: rgba(245, 197, 66, 0.15);
+  color: var(--syzygy-gold);
+}
+
+/* ---- Status bar ---- */
+.theme-dark .status-bar {
+  border-top: 1px solid var(--syzygy-border);
+  background: var(--syzygy-dark);
+  color: var(--syzygy-moonstone);
+}
+
+/* ---- Title bar ---- */
+.theme-dark .view-header {
+  border-bottom: 1px solid var(--syzygy-border);
+  background: var(--syzygy-dark);
+}
+
+/* ---- Frontmatter (Properties) ---- */
+.theme-dark .metadata-properties-heading {
+  color: var(--syzygy-moonstone);
+}
+.theme-dark .metadata-property-key {
+  color: var(--syzygy-silver);
+}
+
+/* ---- Vault name in file explorer ---- */
+.theme-dark .nav-folder.mod-root > .nav-folder-title {
+  color: var(--syzygy-gold);
+  font-weight: 600;
+}
+
+/* ---- Inline code ---- */
+.theme-dark :not(pre) > code {
+  background: var(--syzygy-void);
+  color: var(--syzygy-teal);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+/* ---- Kanban / Board view (if plugin is used) ---- */
+.theme-dark .kanban-plugin__lane-title {
+  color: var(--syzygy-starlight);
+}
+.theme-dark .kanban-plugin__item-title {
+  color: var(--syzygy-silver);
+}
+
+/* ---- Callouts ---- */
+.theme-dark .callout {
+  border-left: 3px solid var(--syzygy-teal);
+  background: rgba(61, 214, 200, 0.04);
+}
+.theme-dark .callout[data-callout="warning"] {
+  border-left-color: var(--syzygy-flare);
+  background: rgba(255, 107, 74, 0.04);
+}
+.theme-dark .callout[data-callout="tip"] {
+  border-left-color: var(--syzygy-gold);
+  background: rgba(245, 197, 66, 0.04);
+}
+
+/* ---- Syzygy-specific visual tweaks ---- */
+
+/* Gold underline on h1 */
+.theme-dark h1 {
+  border-bottom: 1px solid rgba(245, 197, 66, 0.15);
+  padding-bottom: 0.2em;
+}
+
+/* Subtle glow on active elements */
+.theme-dark .nav-file-title.is-active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--syzygy-gold), transparent);
+}
+
+/* Teal bullets */
+.theme-dark .HyperMD-list-line-1 .list-bullet::before {
+  color: var(--syzygy-teal);
+}
+.theme-dark .list-bullet::before {
+  color: var(--syzygy-moonstone);
+}
+
+/* Horizontal rule as a thin gold line */
+.theme-dark .markdown-preview-view hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--syzygy-gold), transparent);
+}
+.theme-dark .cm-hr {
+  color: var(--syzygy-gold);
+}
+
+/* Selection highlight */
+.theme-dark ::selection {
+  background: rgba(61, 214, 200, 0.2);
+}
+
+/* Focus mode — dim inactive panes slightly */
+.theme-dark .workspace-split.mod-root > .workspace-tabs:not(.mod-active) {
+  opacity: 0.85;
+}

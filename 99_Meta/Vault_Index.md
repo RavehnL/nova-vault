@@ -15,6 +15,7 @@ status: active
 - [_moods/](../00_System/_moods/) — Operational state definitions
 - [_tunnels/](../00_System/_tunnels/) — Focus channel definitions
 - [_templates/](../00_System/_templates/) — Profile, mood, and tunnel templates
+- [_design/](../00_System/_design/) — Design system, palette, theme
 
 ## 01_Daily
 - [2026-07-01.md](../01_Daily/2026-07-01.md) — Day 1 foundation

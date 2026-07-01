@@ -1,1 +1,13 @@
-{}
+{
+  "accentColor": "#3DD6C8",
+  "cssTheme": "",
+  "enabledCssSnippets": [
+    "syzygy-theme"
+  ],
+  "baseTheme": "obsidian",
+  "monospaceFontFamily": "JetBrains Mono, Fira Code, Cascadia Code, monospace",
+  "textFontFamily": "Inter, -apple-system, sans-serif",
+  "interfaceFontFamily": "Inter, -apple-system, sans-serif",
+  "showViewHeader": true,
+  "nativeMenus": false
+}
