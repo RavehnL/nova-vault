@@ -1,8 +1,12 @@
+---
 type: daily_log
 date: {{date}}
 timestamp: {{timestamp}}
+report: NR-{{number}}
 milestone_day:
+mood_tier: daily
 status: morning
+---
 
 # {{date}} — Nova Daily Operations
 
@@ -10,9 +14,14 @@ status: morning
 
 - [ ]
 
-## Agent Objectives (Auto-populated by Hermes)
+## Agent Objectives
 
-Awaiting agent orientation...
+Awaiting Syzygy orientation...
+
+## Mood
+
+> Current tier: **Daily** (default)
+> Set to: `build` · `explore` · `survival` · `daily` · `rest`
 
 ## Session Log
 
@@ -20,13 +29,17 @@ Awaiting agent orientation...
 
 -
 
-### Agent Activity Log
+### Agent Activity Log (Syzygy)
 
-Hermes appends here via vault_append
+Appended via vault_tunnel
+
+## Tunnels Active
+
+- vault (default)
 
 ## Memory Sync (LanceDB)
 
-Hermes logs indexed memories here
+Memories indexed here when live
 
 ## Errors & Blockers
 

@@ -2,57 +2,84 @@
 
 Local-first AI workstation. No cloud. All yours.
 
+Guardian: **Syzygy** — the alignment engine.
+
 ## What Is This?
 
-A giant folder (`nova-vault/`) that me and the AI share. I write objectives and read summaries. The AI reads timelines, does tasks, and logs everything back. We stay synced through the daily notes.
+A vault that Bo and the AI share. Bo writes objectives, reads summaries, reviews artifacts. **Syzygy** reads the mood, routes through tunnels, and executes tasks. Everything stays synced through daily notes.
 
-## Vault Layout (What Goes Where)
+The guardian's name means the alignment of celestial bodies. It's the bridge between intent and execution.
+
+## Vault Layout
 
 | Folder | What It's For |
 |---|---|
-| `00_System/` | The rules. Manifesto, timeline, quick-refs. Read these if you're lost. |
-| `01_Daily/` | Daily notes. One file per day. Start here every morning. |
-| `02_Projects/` | Active stuff I'm working on. |
-| `03_Knowledge/` | Research, notes, things I want to keep. |
-| `04_Logs/` | Old logs, history. |
-| `05_Templates/` | Note templates. Don't edit these — copy them. |
-| `99_Meta/` | Indexes, audit reports, vault meta. |
+| `00_System/` | The rules — Manifesto, Timeline, profiles, moods, tunnels, design |
+| `01_Daily/` | Daily notes. One per day. Start here. |
+| `02_Projects/` | Active projects. |
+| `03_Knowledge/` | Research, references, compounding knowledge. |
+| `04_Logs/` | Historical logs. |
+| `05_Templates/` | Note templates. Don't edit — copy. |
+| `99_Meta/` | Index, audits, vault meta. |
 
-## How to Use This
+### 00_System Deep Dive
 
-1. **Open Obsidian** → it opens to `nova-vault` automatically
-2. **Read today's note** in `01_Daily/`
-3. **Check the Timeline** (`00_System/`) to see where we're at
-4. If you want the AI to do something, put it in today's note under **Human Objectives**
-5. The AI logs what it did under **Agent Activity Log**
+| Path | What It Is |
+|---|---|
+| `_profiles/human/` | Human identities (Bo, allies like Ben Goertzel) |
+| `_profiles/agent/` | Guardian charter (Syzygy 1.0) |
+| `_moods/` | 5 operational states: Build · Explore · Survival · Daily · Rest |
+| `_tunnels/` | 6 focus channels: Survival · Vault · Infra · Research · Build · Index |
+| `_templates/` | Re-usable templates for profiles, moods, tunnels |
+| `_design/` | Syzygy palette, Obsidian theme, design system |
 
-## Where Are Things Installed?
+## Mood Tiers
 
-- **Obsidian** — AppImage at `~/Downloads/Obsidian-1.12.7.AppImage` (click to run)
-- **Ollama** — not yet working (broken download, needs fixing)
-- **Hermes agent** — cloned to `~/hermes-agent/`, not set up yet
-- **ROCm (GPU drivers)** — installed and working
-- See `00_System/Agent_Quick_Reference.md` for the full list
+Syzygy shifts its behavior based on where Bo's head is at:
+
+| Tier | When | Tone |
+|---|---|---|
+| **Build** | Deep systems work | Minimal, direct |
+| **Explore** | Creative / tinkering | Expansive, curious |
+| **Survival** | Stressed / overwhelmed | Sparse, grounding |
+| **Daily** | Morning check-in | Normal, syncing |
+| **Rest** | Off hours | Silent, log-only |
+
+## Where Things Are Installed
+
+| Tool | Location | Status |
+|---|---|---|
+| **Obsidian** | `~/Downloads/Obsidian-1.12.7.AppImage` | ✅ Working, Syzygy theme active |
+| **ROCm (GPU)** | System-wide | ✅ RX 9060 XT, 16GB VRAM |
+| **Hermes** | `~/hermes-agent/` | ⏸️ Cloned, needs venv |
+| **Ollama** | Broken binary | ❌ Needs re-download |
+| See `00_System/Agent_Quick_Reference.md` for full details |
 
 ## Current Status
 
-Day 1 of a 30-day sprint. Vault structure is seeded. GPU is working. Obsidian is connected. Next up: getting Ollama running so we can start pulling AI models.
+End of Day 1. Vault is seeded with 8 commits. Syzygy identity is established. Mood tiers and tunnels are documented. Obsidian is themed. 845 GB free disk. Next up: Ollama + Hermes.
 
-## File Rules (for the humans)
+## The Look
 
-- Every file has frontmatter at the top (`type:`, `date:`, `status:`)
-- Don't delete or rename folders without updating the Index
-- Commit to git when things feel important
+Syzygy's palette: Void Dark (`#0D1117`) background, Solar Gold (`#F5C542`) accents, Aurora Teal (`#3DD6C8`) links. The Obsidian theme snippet is already loaded — just enable it in Settings → Appearance → CSS snippets.
+
+## Quick Start (for Bo)
+
+1. Open Obsidian (click the desktop icon or run `~/Downloads/Obsidian-1.12.7.AppImage`)
+2. Read today's note in `01_Daily/`
+3. Check the Timeline in `00_System/`
+4. Write what you need under **Human Objectives**
+5. Tell Syzygy what mood you're in
 
 ## Git
 
-```
-git log --oneline  # see what changed
-git add . && git commit -m "message"  # save your work
+```bash
+git log --oneline          # see history
+git add . && git commit -m "message"  # save
 ```
 
-No remote yet — everything lives on this machine only.
+No remote yet. Everything stays local.
 
 ---
 
-*Built on Ubuntu 26.04 with an AMD RX 9060 XT and zero cloud calls.*
+*Built on Ubuntu 26.04 with an AMD RX 9060 XT and zero cloud calls. Guarded by Syzygy.*

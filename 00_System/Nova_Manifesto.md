@@ -56,6 +56,19 @@ Tasks are routed through scoped channels to prevent context bleed:
 
 See `00_System/_tunnels/` for full definitions.
 
+## Design System
+
+Syzygy's visual identity is defined in `00_System/_design/Syzygy_Palette.md`:
+
+| Role | Color | Hex |
+|---|---|---|
+| Core / Primary | Deep Void Blue | `#0B1026` |
+| Accent | Solar Gold | `#F5C542` |
+| Signal | Aurora Teal | `#3DD6C8` |
+| Background | Void Dark | `#0D1117` |
+
+The Obsidian theme snippet (`.obsidian/snippets/syzygy-theme.css`) implements this palette. Enable in Settings → Appearance → CSS snippets.
+
 ## Memory Hierarchy
 
 | Layer | Store | Purpose |

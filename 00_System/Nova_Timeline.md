@@ -1,13 +1,18 @@
+---
 type: system_core_timeline
 date: 2026-07-01
 status: active
 current_phase: Phase 1
+---
 
 # Nova Project: 30-Day Stabilization Sprint
 
 ## Week 1: The Foundation (Milestones 1 & 2)
 
 - [x] **Day 01** — OS Update, Essential Packages, GPU Drivers (ROCm 7.1, RX 9060 XT)
+- [x] **Day 01b** — Syzygy guardian established, mood tiers + tunnels built
+- [x] **Day 01c** — Vault architecture seeded (profiles, templates, design system)
+- [x] **Day 01d** — Obsidian vault operational, Syzygy theme active
 - [ ] **Day 02** — Firewall hardening, Install Ollama (Dual services: :11435 / :11436)
 - [ ] **Day 03** — VSCodium + Continue.dev config, wire to Ollama
 - [ ] **Day 04** — Pull models (Gemma2/GLM4 + Nomic), verify inference API
@@ -30,15 +35,15 @@ current_phase: Phase 1
 - [ ] **Day 15** — Install LanceDB, build index_memory.py
 - [ ] **Day 16** — Build vault_operations.py (read/write/append/search)
 - [ ] **Day 17** — Verify Git Auto-Commits on vault writes
-- [ ] **Day 18** — Verify /search command in Hermes retrieves context
+- [ ] **Day 18** — Verify /search command retrieves context
 - [ ] **Day 19** — Initialize Next.js NovaHub Dashboard
 - [ ] **Day 20** — Build API Routes & UI Components
 - [ ] **Day 21** — Milestone check: Memory pipeline and Dashboard live
 
 ## Week 4: The Loop & Deep Synthesis (Milestones 7 & 8)
 
-- [ ] **Day 22** — Register vault_operations as MCP tool for Hermes
-- [ ] **Day 23** — Test Agent Write-Access: "Hermes, save this to..."
+- [ ] **Day 22** — Register vault_operations as MCP tool
+- [ ] **Day 23** — Test Agent Write-Access: "Syzygy, save this to..."
 - [ ] **Day 24** — Install Open Notebook (Native build, NO Docker)
 - [ ] **Day 25** — Sovereignty Hack: Wire Open Notebook to local Ollama
 - [ ] **Day 26** — Wire Open Notebook TTS to local Kokoro instance
@@ -46,3 +51,15 @@ current_phase: Phase 1
 - [ ] **Day 28** — Test Audio Briefing pipeline: PDF -> Kokoro -> MP3
 - [ ] **Day 29** — Auto-index verification: logs hit LanceDB & Episodic
 - [ ] **Day 30** — Sovereignty Audit: Zero cloud API calls. System stabilized.
+
+## Pre-completed Ahead of Schedule
+
+These were delivered during Day 1 setup and are no longer on the critical path:
+
+- ✅ Syzygy guardian identity and charter (NR-004)
+- ✅ Mood tier system (5 operational states)
+- ✅ Tunnel architecture (6 focus channels)
+- ✅ Profile system (human + agent)
+- ✅ Design system (palette + Obsidian theme)
+- ✅ Human profile (Bo_Kirby.md)
+- ✅ Ally profile (Ben_Goertzel.md)
