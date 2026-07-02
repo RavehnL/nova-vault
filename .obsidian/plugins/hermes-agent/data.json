@@ -7,7 +7,7 @@
   "includeNoteContent": true,
   "requestTimeoutMs": 120000,
   "maxTabs": 3,
-  "workingFolder": "/home/bo/nova-vault",
+  "workingFolder": "",
   "autoApproveTools": true,
   "userName": "Bo",
   "hermesHome": ".hermes",

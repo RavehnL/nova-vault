@@ -1,6 +1,6 @@
 ---
 type: system_core_reference
-date: 2026-07-01
+date: 2026-07-02
 status: active
 ---
 
@@ -10,15 +10,17 @@ Cold-boot procedure after computer restart. Everything is local — no cloud dep
 
 ## After restart, these start automatically
 
-| Service          | Auto                    | Verifies via                    |
-| ---------------- | ----------------------- | ------------------------------- |
-| **Ollama**       | systemd (enabled)       | `curl localhost:11434/api/tags` |
-| **UFW firewall** | systemd (enabled)       | `ufw status`                    |
-| **NovaHub**      | systemd (user, enabled) | open `http://localhost:3000`    |
-| **nova-tools (MCP)** | systemd (user, enabled) | `curl http://localhost:8766/health` |
-| **nova-api**     | systemd (user, enabled) | `curl http://localhost:8766/system/stats` |
+| Service          | Port     | Auto                    | Verifies via                    |
+| ---------------- | -------- | ----------------------- | ------------------------------- |
+| **Ollama**       | `:11434` | systemd (enabled)       | `curl localhost:11434/api/tags` |
+| **UFW firewall** | —        | systemd (enabled)       | `ufw status`                    |
+| **nova-tools (MCP)** | `:8765` | systemd (user, enabled) | `curl http://localhost:8765/health` |
+| **nova-api**     | `:8766`  | systemd (user, enabled) | `curl http://localhost:8766/health` |
+| **NovaHub**      | `:3000`  | systemd (user, enabled) | open `http://localhost:3000`    |
 
-**You don't need to start anything.** Just open `http://localhost:3000` in a browser. NovaHub, Ollama, MCP, API sidecar, and the vault DB are all live.
+Startup order: Ollama → nova-tools → nova-api → NovaHub (nova-api is a `Wants=` soft dependency for NovaHub — if nova-api fails, NovaHub still starts).
+
+**You don't need to start anything.** Just open `http://localhost:3000` in a browser.
 
 ## What's still manual
 
@@ -35,9 +37,16 @@ cd ~/nova-tools
 
 # OpenCode agent session
 opencode
+
+# Git push to remote
+cd ~/nova-vault
+git add . && git commit -m "NR-NNN: message"
+git push origin main
 ```
 
-## If NovaHub doesn't load
+## Troubleshooting
+
+### NovaHub doesn't load
 
 ```
 # Check the service
@@ -48,25 +57,50 @@ journalctl --user -u novahub.service -n 30 --no-pager
 systemctl --user restart novahub.service
 ```
 
+### NovaHub loads but shows stale data (500 errors)
+
+This usually means the Prisma enums don't match the DB. Common cause: a service status was set to a value not in `ServiceStatus` enum (`active`, `offline`, `online` only).
+
+```
+# Check if nova-api is healthy
+curl http://localhost:8766/health
+
+# Check the DB directly
+sqlite3 ~/nova-vault/99_Meta/nova.db "SELECT DISTINCT status FROM Service"
+
+# Fix off-enum values, then restart NovaHub
+systemctl --user restart novahub.service
+```
+
+### All services check (verbose)
+
+```
+systemctl --user status nova-tools.service nova-api.service novahub.service --no-pager -l
+```
+
 ## Quick reference
 
 | Endpoint | What |
 |----------|------|
 | `http://localhost:3000` | NovaHub dashboard (14 tabs) |
-| `http://localhost:8765` | MCP server (SSE — vault ops + search) |
+| `http://localhost:8765` | MCP server (SSE — vault ops + search + plugins) |
 | `http://localhost:8766` | Nova API sidecar (REST — stats, ollama proxy, vault, chat, RAG, TTS) |
-| `http://localhost:11434` | Ollama API |
-| `~/nova-vault/99_Meta/nova.db` | Vault database (SQLite) |
-| `~/nova-tools/novahub/` | Dashboard source |
-| `~/nova-tools/vault_operations.py` | Vault read/write tool |
-| `~/nova-tools/index_memory.py` | Semantic memory (LanceDB) |
+| `http://localhost:11434` | Ollama API — 6 models on ROCm 7.2 GPU |
+| `~/nova-vault/` | Vault root (git repo, remote at `github.com/RavehnL/nova-vault`) |
+| `~/nova-vault/99_Meta/nova.db` | Vault database (SQLite — NovaHub backend) |
+| `~/nova-tools/novahub/` | Dashboard source (Next.js 16) |
+| `~/nova-tools/vault_operations.py` | Vault read/write/append tool |
+| `~/nova-tools/index_memory.py` | Semantic memory (LanceDB at `~/.hermes/lancedb`) |
 | `~/nova-tools/mcp_server.py` | MCP server (port 8765) |
 | `~/nova-tools/nova_api.py` | API sidecar (port 8766) |
-| `~/.nova/config.yaml` | Central config |
+| `~/nova-tools/deploy.sh` | One-command redeploy |
+| `~/.nova/config.yaml` | Central config — ollama, vault, lancedb, ports |
 
 ## Boot log
 
 ```bash
+journalctl --user -u nova-tools.service --no-pager -n 30
+journalctl --user -u nova-api.service --no-pager -n 30
 journalctl --user -u novahub.service --no-pager -n 50
 journalctl -u ollama.service --no-pager -n 20
 ```

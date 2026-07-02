@@ -1,6 +1,6 @@
 ---
 type: meta_index
-date: 2026-07-01
+date: 2026-07-02
 status: active
 ---
 
@@ -45,7 +45,8 @@ status: active
 - [_design/Syzygy_Palette.md](../00_System/_design/Syzygy_Palette.md) — Color palette, role map, thematic preferences
 
 ## 01_Daily
-- [2026-07-01.md](../01_Daily/2026-07-01.md) — Day 1 + Day 2 foundation — OS, ROCm 7.1, Syzygy establishment, vault seeding, NovaHub dashboard, Ollama v0.31.1 + ROCm 7.2 GPU, UFW firewall, timeline reconciliation (NR-000 through NR-019)
+- [2026-07-01.md](../01_Daily/2026-07-01.md) — Day 1 + Day 2 foundation + Big Pickle buildout — OS, ROCm, Syzygy, NovaHub, Ollama, UFW, nova-tools MCP/API, 14-tab dashboard, RAG, TTS (NR-000 through NR-021)
+- [2026-07-02.md](../01_Daily/2026-07-02.md) — Day 25 — DB reconciliation, Prisma enum fix, NovaHub hydration fix (NR-022)
 
 ## 02_Projects
 - (empty)
@@ -54,9 +55,8 @@ status: active
 - [ponytail.md](../03_Knowledge/ponytail.md) — YAGNI skill reference — lazy senior dev ruleset
 
 ## 04_Logs
-- [WORKLOG.md](../04_Logs/WORKLOG.md) — Persistent session log (NR-000 through NR-019)
+- [WORKLOG.md](../04_Logs/WORKLOG.md) — Persistent session log (NR-000 through NR-022)
 - [Reflections/](../04_Logs/Reflections/) — Session communication pattern logs
-  - [2026-07-01_communication-patterns.md](../04_Logs/Reflections/2026-07-01_communication-patterns.md) — Coordination insights from Day 1+2
   - [2026-07-01_communication-patterns.md](../04_Logs/Reflections/2026-07-01_communication-patterns.md) — Coordination insights from Day 1+2
 
 ## 05_Templates

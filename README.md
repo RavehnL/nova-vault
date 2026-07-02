@@ -1,8 +1,15 @@
+---
+type: readme
+date: 2026-07-02
+status: active
+---
+
 # Nova Project
 
 Local-first AI workstation. No cloud. All yours.
 
 Guardian: **Syzygy** — the celestial alignment engine. The bridge between intent and execution.
+Agent stack: **nova-tools** — MCP server (:8765) + FastAPI API (:8766) + NovaHub dashboard (:3000).
 
 ---
 
@@ -15,11 +22,12 @@ A sovereign AI workspace built on Ubuntu 26.04 with AMD ROCm. Bo writes objectiv
 ## Quick Start
 
 1. **Open the vault**: Obsidian is at `~/Downloads/Obsidian-1.12.7.AppImage`. Run with `--no-sandbox`.
-2. **Read today's note**: `01_Daily/YYYY-MM-DD.md` — start here every session.
-3. **Check the timeline**: `00_System/Nova_Timeline.md` — what phase are we in?
-4. **Read the Manifesto**: `00_System/Nova_Manifesto.md` — the rules.
-5. **Set your mood**: Tell Syzygy which tier you're in (build/explore/survival/daily/rest).
-6. **Check the dashboard**: `http://localhost:3000` — NovaHub with 14 tabs.
+2. **Open OpenCode**: Agent interface at `~/.opencode/bin/opencode` — this is how tasks execute.
+3. **Read today's note**: `01_Daily/YYYY-MM-DD.md` — start here every session.
+4. **Check the timeline**: `00_System/Nova_Timeline.md` — what phase are we in?
+5. **Read the Manifesto**: `00_System/Nova_Manifesto.md` — the rules.
+6. **Set your mood**: Tell Syzygy which tier you're in (build/explore/survival/daily/rest).
+7. **Check the dashboard**: `http://localhost:3000` — NovaHub with 14 tabs.
 
 Before Syzygy can operate, it must read in order: Manifesto → Bo profile → Syzygy charter → Quick Reference → Timeline → daily note.
 
@@ -85,7 +93,7 @@ Every profile uses a reusable template from `_templates/`.
 | Tool | Location | Status |
 |---|---|---|
 | **Obsidian** | `~/Downloads/Obsidian-1.12.7.AppImage` | ✅ Syzygy theme active |
-| **ROCm 7.1** | System-wide (kernel module) | ✅ RX 9060 XT, 32 CUs, 16GB VRAM |
+| **ROCm 7.2** | System-wide (kernel module) | ✅ RX 9060 XT, 32 CUs, 16GB VRAM |
 | **Node.js** | `/usr/bin/node` v22.22.1 | ✅ |
 | **pnpm** | `/usr/local/bin/pnpm` v11.9.0 | ✅ |
 | **uv** | `~/.local/bin/uv` v0.11.26 | ✅ |
@@ -100,14 +108,15 @@ Full details: `00_System/Agent_Quick_Reference.md`
 
 ## Backend Services
 
-Two systemd user services run alongside NovaHub:
+Three systemd user services run the agent stack:
 
 | Service | Port | What it does |
 |---|---|---|
 | `nova-tools.service` | 8765 (SSE) | MCP server — vault ops + semantic search + plugins |
 | `nova-api.service` | 8766 (HTTP) | FastAPI sidecar — system stats, ollama proxy, vault, chat, search, NR, RAG, TTS |
+| `novahub.service` | 3000 (HTTP) | NovaHub dashboard — Next.js 16 + Prisma/SQLite |
 
-Both auto-start on boot, restart on failure, and bind to ollama. Managed via `systemctl --user`.
+`novahub.service` depends on `nova-api.service` (`After=` + `BindsTo=`). All three auto-start on boot, restart on failure. Managed via `systemctl --user`.
 
 ## NovaHub Dashboard
 
@@ -134,19 +143,22 @@ Backed by Prisma/SQLite at `99_Meta/nova.db` + Python sidecar at `localhost:8766
 
 ## Current Status
 
-**Days 1-24 complete** — 2026-07-01. Foundation, Agentic Core, Memory, Dashboard, and Big Pickle buildout all operational:
+**Days 1-25 complete** — 2026-07-02. Foundation, Agentic Core, Memory, Dashboard, Big Pickle buildout, and git remote all operational:
 
-- Ubuntu 26.04 + ROCm 7.1 + RX 9060 XT (32 CUs, 16GB VRAM, 40°C)
+- Ubuntu 26.04 + ROCm 7.2 + RX 9060 XT (32 CUs, 16GB VRAM, 40°C)
 - Syzygy guardian identity established (NR-004) with full charter
 - 5 mood tiers, 6 tunnels, 4 templates built
 - Ollama v0.31.1 — ROCm 7.2 GPU inference (6 models)
 - NovaHub dashboard: 14 tabs at localhost:3000 (NR-021)
-- ~~systemd services for nova-tools~~ ✅ MCP (:8765) + API (:8766)
-- ~~Central config~~ ✅ ~/.nova/config.yaml drives all tools
-- ~~RAG pipeline~~ ✅ vault markdown index + context query
-- ~~TTS~~ ✅ espeak-ng daily briefing
+- ✅ systemd services for nova-tools — MCP (:8765) + API (:8766) + NovaHub (:3000)
+- ✅ Central config — ~/.nova/config.yaml drives all tools
+- ✅ RAG pipeline — vault markdown index + context query
+- ✅ TTS — espeak-ng daily briefing
+- ✅ Git remote push — `git@github.com:RavehnL/nova-vault.git` (SSH)
+- ✅ DB reconciliation — services table clean, Prisma enums aligned
+- ✅ Hydration fix — Next.js Turbopack SSR consistency (NR-022)
 
-**Next up**: Git auto-commit daemon, daily backup, git remote push, Open Notebook.
+**Next up**: Git auto-commit daemon, daily backup systemd timer, Open Notebook (native build).
 
 ## Git
 
@@ -154,9 +166,10 @@ Backed by Prisma/SQLite at `99_Meta/nova.db` + Python sidecar at `localhost:8766
 git log --oneline          # 13 commits — foundation through Big Pickle
 git status                 # current state
 git add . && git commit -m "NR-NNN: message"  # commit with report number
+git push origin main       # push to remote (SSH key auth)
 ```
 
-No remote configured. Everything stays local unless explicitly pushed.
+Remote: `git@github.com:RavehnL/nova-vault.git` (private, SSH key). Push manually or wait for auto-commit daemon.
 
 ---
 

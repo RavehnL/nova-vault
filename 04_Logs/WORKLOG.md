@@ -1,8 +1,8 @@
 ---
 type: worklog
-date: 2026-07-01
+date: 2026-07-02
 status: active
-current_session: NR-020
+current_session: NR-022
 ---
 
 # Nova Project Worklog
@@ -298,12 +298,27 @@ Persistent session log — tracks every NR report across all days.
 
 ---
 
+## 2026-07-02 — Day 25
+
+### NR-022 — DB Reconciliation & Hydration Fix
+**Time**: ~00:00
+**Status**: Completed
+**Detail**: Fix stale Obsidian Vault status, Prisma enum mismatch, and Next.js hydration error on Refresh button.
+**Outcomes**:
+  - Obsidian Vault status changed from `"available"` → `"active"` in nova.db (Prisma ServiceStatus enum only accepts `active/offline/online`)
+  - All 11 services rendering correctly in NovaHub dashboard with correct status colors
+  - Hydration mismatch on Refresh button `disabled` attribute fixed — server rendered `null`, client rendered `true`
+  - Root cause: Next.js Turbopack static-pre-renders `'use client'` components without running useState initializers for boolean HTML attributes
+  - Fix: `mounted` guard (`useState(false)` + `useEffect(() => setMounted(true))`) — both server and client start with `disabled={undefined}`, attribute appears only after hydration
+
+---
+
 ## Key Metrics
 
 | Metric | Value |
 |---|---|---|
-| Sessions | 3 (Day 1 + Day 2 continued + Big Pickle) |
-| NR Reports | 22 (NR-000 through NR-021) |
+| Sessions | 4 (Day 1 + Day 2 continued + Big Pickle + Day 25) |
+| NR Reports | 23 (NR-000 through NR-022) |
 | Git Commits | 13 (11 vault + 2 novahub) |
 | Files in Vault | 40+ (all sections + nova-tools Python stack) |
 | ROCm VRAM | 16GB GDDR6 (15.8 GiB available) |

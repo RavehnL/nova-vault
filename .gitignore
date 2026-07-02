@@ -1,0 +1,8 @@
+# SQLite WAL files — change on every NovaHub dashboard interaction
+*.db-shm
+*.db-wal
+*.db-journal
+
+# OS junk
+.DS_Store
+Thumbs.db

@@ -2,7 +2,7 @@
 type: system_core_timeline
 date: 2026-07-01
 status: active
-current_phase: Phase 1
+current_phase: Phase 1 (Week 4)
 ---
 # Nova Project: 30-Day Stabilization Sprint
 
@@ -21,10 +21,10 @@ current_phase: Phase 1
 - [x]  **Day 08** — Build `vault_operations.py` (The Hands): read/write/append/search for vault
 - [x]  **Day 09** — Build `index_memory.py` (The Hippocampus): LanceDB embedding storage via Ollama
 - [x]  **Day 10** — Interactive Mode Verification: nova-tools stack responds to NL prompts (NR-017)
-- [ ]  **Day 11** — Create systemd services for nova-tools scripts, verify background running
+- [x]  **Day 11** — Create systemd services for nova-tools scripts, verify background running ✅
 - [x]  **Day 12** — Initialize Obsidian Vault + Git repo, apply Syzygy theme
 - [x]  **Day 13** — Seed Vault Architecture (00_System through 05_Templates, profiles/moods/tunnels)
-- [ ]  **Day 14** — Milestone Check: M3 Custom Agentic Core pipeline verified, M5 Episodic Memory pipeline verified
+- [x]  **Day 14** — Milestone Check: M3 Custom Agentic Core, M5 Episodic Memory verified ✅
 
 ## Week 3: Semantic Memory & Control Surface (Milestones 5 & 6)
 
@@ -34,7 +34,7 @@ current_phase: Phase 1
 - [x]  **Day 18** — Verify /search command retrieves context via vector similarity (NR-017)
 - [x]  **Day 19** — Initialize Next.js NovaHub Dashboard (6-tab layout)
 - [x]  **Day 20** — Build API Routes & UI Components (8 REST endpoints, agent cards, system monitor)
-- [~]  **Day 21** — Milestone check: Memory pipeline and Dashboard live ✅; Install Kokoro TTS (deferred)
+- [x]  **Day 21** — Milestone check: Memory pipeline and Dashboard live ✅; Kokoro → espeak-ng fallback (NR-021)
 - [x]  **Day 22** — NovaHub reconciliation — DB at vault path, seed data updated (Ora→Syzygy), all APIs verified
 - [x]  **Day 23** — Syzygy agent added to dashboard, Hermes→nova-tools cut resolved
 - [x]  **Day 24** — System stabilized, Prisma enum mismatch fixed, all API endpoints 200
@@ -44,11 +44,11 @@ current_phase: Phase 1
 - [x]  **Day 22** — Central config system (~/.nova/config.yaml), vault_operations.py + index_memory.py migrated
 - [x]  **Day 23** — MCP server (SSE :8765, 4 tools + plugin system) + FastAPI sidecar (:8766, 15 endpoints)
 - [x]  **Day 24** — NovaHub expanded to 14 tabs: System, Models, Chat, Daily, Search, Vault, NR, RAG, Briefing
-- [ ]  **Day 25** — Git auto-commit daemon, daily vault backup, git remote push
+- [~]  **Day 25** — Git remote push ✅; DB reconciliation + hydration fix ✅; auto-commit daemon + daily backup timer pending
 - [ ]  **Day 26** — Install Open Notebook (Native build, NO Docker)
-- [ ]  **Day 27** — Sovereignty Hack: Wire Open Notebook to local Ollama :11434
-- [ ]  **Day 28** — Wire Kokoro TTS to local Ollama :11434
-- [ ]  **Day 29** — Auto-index verification: logs hit LanceDB & Episodic
+- [ ]  **Day 27** — Wire Open Notebook to local Ollama :11434
+- [x]  **Day 28** — MCP agent write-access + RAG pipeline ✅ (delivered early via Big Pickle)
+- [ ]  **Day 29** — Auto-index verification: logs hit LanceDB
 - [ ]  **Day 30** — Sovereignty Audit: Zero cloud API calls. System stabilized.
 
 ## Pre-completed Ahead of Schedule
