@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "03be586a7ba79ec4",
+        "id": "5f9503782b7c9df1",
         "type": "tabs",
         "children": [
           {
-            "id": "db4da97b6dd1f10a",
+            "id": "c71652d586a99a6c",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "00_System/_moods/tier_survival.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "tier_survival"
             }
           }
         ]
@@ -74,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 405.5
   },
   "right": {
     "id": "d8e0dd3b639169ce",
@@ -157,58 +161,92 @@
               "icon": "lucide-list",
               "title": "Outline"
             }
+          },
+          {
+            "id": "92f25ce3b7eb7080",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          },
+          {
+            "id": "ea10f4309583f856",
+            "type": "leaf",
+            "state": {
+              "type": "hermes-chat",
+              "state": {},
+              "icon": "bot",
+              "title": "Hermes Agent"
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
+      "switcher:Open quick switcher": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "hermes-agent:Open Hermes Agent": false,
+      "hermes-agent:Open Hermes smart graph": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "hermes-console:Open Hermes Console": false
     }
   },
-  "active": "db4da97b6dd1f10a",
+  "active": "c71652d586a99a6c",
   "lastOpenFiles": [
-    "99_Meta/Systems_Audit_Report.md",
-    "00_System/_design/Syzygy_Palette.md",
-    "00_System/_design",
-    "00_System/_profiles/human/Ben_Goertzel.md",
-    "00_System/_templates/tunnel.md",
-    "00_System/_templates/mood_tier.md",
-    "00_System/_templates/agent_identity.md",
-    "00_System/_templates/human_profile.md",
-    "00_System/_tunnels/tunnel_build.md",
-    "00_System/_tunnels/tunnel_research.md",
-    "00_System/_tunnels/tunnel_infra.md",
-    "00_System/_tunnels/tunnel_vault.md",
-    "00_System/_tunnels/tunnel_survival.md",
-    "00_System/_tunnels/tunnel_index.md",
     "00_System/_moods/tier_rest.md",
-    "00_System/_moods/tier_daily.md",
-    "00_System/_moods/tier_survival.md",
     "00_System/_moods/tier_explore.md",
+    "00_System/_moods/tier_daily.md",
     "00_System/_moods/tier_build.md",
-    "00_System/_profiles/agent/Syzygy_1.0.md",
-    "00_System/_profiles/human/Bo_Kirby.md",
-    "00_System/The_Dawn_of_Syzygy.md",
-    "00_System/_profiles/human",
-    "00_System/_profiles/agent",
-    "00_System/_profiles",
-    "00_System/_templates",
-    "00_System/_tunnels",
-    "00_System/_moods",
+    "03_Knowledge/Z ai - Roadmap book.md",
+    "99_Meta/Vault_Index.md",
     "01_Daily/2026-07-01.md",
-    "README.md",
+    "03_Knowledge/ponytail.md",
+    "99_Meta/_audits/ponytail/2026-07-01.md",
+    "04_Logs/WORKLOG.md",
+    "04_Logs/Reflections/2026-07-01_communication-patterns.md",
+    "02_Projects/Obsidian Graphics/configuration chart.canvas",
+    "00_System/The_Dawn_of_Syzygy.md",
+    "00_System/Startup_Guide.md",
+    "00_System/Nova_Timeline.md",
+    "00_System/Nova_Manifesto.md",
     "00_System/Agent_Quick_Reference.md",
-    "99_Meta/Vault_Index.md"
+    "99_Meta/Systems_Audit_Report.md",
+    "deepseek_sync-plan-system.md",
+    "Nova_Roadmap_Progress_Report_NR-010.pdf",
+    "README.md",
+    "99_Meta/nova.db-journal",
+    "Untitled.canvas",
+    "99_Meta/nova.db.pre-novahub-wire.1782957032",
+    "00_System/_design/Syzygy_Palette.md",
+    "03_Knowledge/Sovereign_Test.md",
+    "00_System/_profiles/agent/Syzygy_1.0.md",
+    "workspace-4f02db0b-f567-4db5-a552-19cee37b4af5.tar",
+    "02_Projects/Backup config Jul 1 17:10",
+    "02_Projects/Obsidian Graphics",
+    "deepseek_mermaid_20260701_c87799.png",
+    "deepseek_mermaid_20260701_ca0c3c.svg",
+    "deepseek_mermaid_20260701_2e7066.mermaid",
+    "deepseek_mermaid_20260701_c08197.svg",
+    "deepseek_mermaid_20260701_31cf5d.png",
+    "deepseek_mermaid_20260701_4ea6e4.mermaid",
+    "00_System/_profiles/human/Bo_Kirby/Local Models worth looking into - Not Investigated  - Potential Vault Knowledge.md",
+    "00_System/_tunnels/tunnel_build.md",
+    "00_System/_tunnels/tunnel_infra.md",
+    "00_System/_tunnels/tunnel_index.md",
+    "00_System/_profiles/human/Scientist",
+    "04_Logs/Reflections"
   ]
 }

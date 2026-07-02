@@ -1,0 +1,17 @@
+{
+  "baseUrl": "http://localhost:11434",
+  "apiKey": "",
+  "model": "Ornith:0b-256k",
+  "transport": "auto",
+  "reasoningEffort": "",
+  "includeNoteContent": true,
+  "requestTimeoutMs": 120000,
+  "maxTabs": 3,
+  "workingFolder": "/home/bo/nova-vault",
+  "autoApproveTools": true,
+  "userName": "Bo",
+  "hermesHome": ".hermes",
+  "graphMaxNotes": 150,
+  "graphMinEdgeWeight": 0.3,
+  "graphIncludeWikilinks": true
+}

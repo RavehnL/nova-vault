@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"7f4ae80ebc80a8dd","type":"group","x":22,"y":-840,"width":1330,"height":440,"color":"6","label":"configuration chart - proposed (needs review)"},
+		{"id":"e64513bf53b67291","type":"group","x":1680,"y":-800,"width":1290,"height":400,"color":"#0011ff","label":"Current system Configuration: Jul 1 - 16:41 (needs reviewed)"},
+		{"id":"4e905882d0bfc212","type":"file","file":"deepseek_mermaid_20260701_2e7066.mermaid","x":1680,"y":-800,"width":400,"height":400,"color":"#0011ff"},
+		{"id":"269d0cd745dd6f16","type":"file","file":"deepseek_mermaid_20260701_ca0c3c.svg","x":2125,"y":-800,"width":400,"height":270,"color":"#0011ff"},
+		{"id":"d9281d04297f1f85","type":"file","file":"deepseek_mermaid_20260701_c87799.png","x":2570,"y":-800,"width":400,"height":270,"color":"#0011ff"},
+		{"id":"457bd1e6b17a58e4","type":"file","file":"deepseek_mermaid_20260701_4ea6e4.mermaid","x":42,"y":-820,"width":400,"height":400,"color":"6"},
+		{"id":"123e20aeeba8eeee","type":"file","file":"deepseek_mermaid_20260701_c08197.svg","x":932,"y":-820,"width":420,"height":368,"color":"6"},
+		{"id":"1d92baebf7499ebc","type":"file","file":"deepseek_mermaid_20260701_31cf5d.png","x":487,"y":-820,"width":400,"height":351,"color":"6"}
+	],
+	"edges":[]
+}

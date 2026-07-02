@@ -1,0 +1,37 @@
+flowchart TD
+    subgraph Hardware[Hardware: Ubuntu 26.04 / AMD RX 9060 XT 16GB]
+        ROCm[ROCm 7.2 Drivers] --> GPU[GPU: 32 CUs, 35°C]
+    end
+
+    subgraph Inference[Inference Engine]
+        Ollama[Ollama v0.31.1<br>Port 11434] --> LLM[qwen3:8b / tinyllama]
+        Ollama --> Embed[nomic-embed-text]
+    end
+
+    subgraph Memory[Memory Stores]
+        Vault[Obsidian Vault<br>~/nova-vault<br>Git-backed (10 commits)]
+        LanceDB[LanceDB<br>~/.hermes/lancedb<br>Vector Store]
+    end
+
+    subgraph Tools[Manual Tools (nova-tools)]
+        VaultOps[vault_operations.py<br>Read/Write/Append]
+        IndexMem[index_memory.py<br>Index/Search]
+    end
+
+    subgraph Interface[Human Interface]
+        ObsidianApp[Obsidian App<br>Syzygy Theme]
+        Dashboard[NovaHub Dashboard<br>Port 3000<br>Read-only Status View]
+    end
+
+    %% Current Relations (Siloed)
+    ObsidianApp -->|Human writes manually| Vault
+    Dashboard -.->|Reads DB only| Vault
+    User[Bo] -->|Runs manually| Tools
+    Tools -->|Reads/Writes| Vault
+    Tools -->|Indexes/Searches| LanceDB
+    Tools -->|Queries| Ollama
+
+    style Hardware fill:#0D1117,stroke:#F5C542,color:#E6EDF3
+    style Inference fill:#0D1117,stroke:#3DD6C8,color:#E6EDF3
+    style Memory fill:#0D1117,stroke:#F5C542,color:#E6EDF3
+    style Interface fill:#0D1117,stroke:#3DD6C8,color:#E6EDF3

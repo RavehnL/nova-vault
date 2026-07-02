@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "source": "lean-obsidian-terminal",
+  "vaultPath": "/home/bo/nova-vault",
+  "bridgePath": "/home/bo/nova-vault/.obsidian/hermes/context.json",
+  "updatedAt": "2026-07-02T01:16:06.113Z",
+  "updateTimestamp": 1782954966113,
+  "submitSequence": 2,
+  "attach": {
+    "enabled": false
+  },
+  "terminal": {
+    "id": "terminal-2",
+    "title": "Hermes 1"
+  },
+  "context": null
+}

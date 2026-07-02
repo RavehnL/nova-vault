@@ -47,12 +47,13 @@ See `00_System/_moods/` for full definitions.
 Tasks are routed through scoped channels to prevent context bleed:
 
 | Tunnel | Focus |
-|---|---|
+|---|---|---|
 | survival | Income generation, bounties |
 | vault | File maintenance, daily note |
 | infra | System config, services |
 | research | Deep reading, knowledge |
 | build | Active project work |
+| index | Meta, vault map, worklog |
 
 See `00_System/_tunnels/` for full definitions.
 
@@ -61,11 +62,12 @@ See `00_System/_tunnels/` for full definitions.
 Syzygy's visual identity is defined in `00_System/_design/Syzygy_Palette.md`:
 
 | Role | Color | Hex |
-|---|---|---|
-| Core / Primary | Deep Void Blue | `#0B1026` |
-| Accent | Solar Gold | `#F5C542` |
-| Signal | Aurora Teal | `#3DD6C8` |
+|---|---|---|---|
 | Background | Void Dark | `#0D1117` |
+| Accent | Solar Gold | `#F5C542` |
+| Signal / Accent | Aurora Teal | `#3DD6C8` |
+| Text | Ice Gray | `#E6EDF3` |
+| Muted | Steel Blue Gray | `#8B949E` |
 
 The Obsidian theme snippet (`.obsidian/snippets/syzygy-theme.css`) implements this palette. Enable in Settings → Appearance → CSS snippets.
 
@@ -103,4 +105,5 @@ New agents should read, in order:
 2. Read the relevant mood tier before engaging
 3. Route all tasks through the correct tunnel
 4. Never reboot the system without human confirmation
-5. All file writes go through vault_operations (when Hermes is live)
+5. Prefer YAGNI: use ponytail ruleset (stdlib → native → dependency → one line → min code)
+6. All file writes go through vault_operations (when LanceDB is live)

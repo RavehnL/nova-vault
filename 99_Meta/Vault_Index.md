@@ -11,6 +11,7 @@ status: active
 ### Core Documents
 - [Nova_Manifesto.md](../00_System/Nova_Manifesto.md) — Core principles, 5 mood tiers, 6 tunnels, file conventions, agent reading order
 - [Nova_Timeline.md](../00_System/Nova_Timeline.md) — 30-day stabilization sprint across 4 weeks (Phase 1→4), pre-completed items
+- [Startup_Guide.md](../00_System/Startup_Guide.md) — Cold-boot procedure, auto-start services, manual tools, quick reference
 - [The_Dawn_of_Syzygy.md](../00_System/The_Dawn_of_Syzygy.md) — Guardian origin milestone (NR-004) — birth of Syzygy
 - [Agent_Quick_Reference.md](../00_System/Agent_Quick_Reference.md) — Vault map, key files, binary/config locations, port table, agent rules, conventions
 
@@ -44,7 +45,7 @@ status: active
 - [_design/Syzygy_Palette.md](../00_System/_design/Syzygy_Palette.md) — Color palette, role map, thematic preferences
 
 ## 01_Daily
-- [2026-07-01.md](../01_Daily/2026-07-01.md) — Day 1 + Day 2 foundation — OS, ROCm 7.1, Syzygy establishment, vault seeding, NovaHub dashboard, Ollama v0.31.1 + ROCm 7.2 GPU, UFW firewall (NR-000 through NR-016)
+- [2026-07-01.md](../01_Daily/2026-07-01.md) — Day 1 + Day 2 foundation — OS, ROCm 7.1, Syzygy establishment, vault seeding, NovaHub dashboard, Ollama v0.31.1 + ROCm 7.2 GPU, UFW firewall, timeline reconciliation (NR-000 through NR-019)
 
 ## 02_Projects
 - (empty)
@@ -53,7 +54,7 @@ status: active
 - [ponytail.md](../03_Knowledge/ponytail.md) — YAGNI skill reference — lazy senior dev ruleset
 
 ## 04_Logs
-- [WORKLOG.md](../04_Logs/WORKLOG.md) — Persistent session log (NR-000 through NR-017)
+- [WORKLOG.md](../04_Logs/WORKLOG.md) — Persistent session log (NR-000 through NR-019)
 - [Reflections/](../04_Logs/Reflections/) — Session communication pattern logs
   - [2026-07-01_communication-patterns.md](../04_Logs/Reflections/2026-07-01_communication-patterns.md) — Coordination insights from Day 1+2
   - [2026-07-01_communication-patterns.md](../04_Logs/Reflections/2026-07-01_communication-patterns.md) — Coordination insights from Day 1+2

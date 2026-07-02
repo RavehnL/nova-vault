@@ -4,7 +4,6 @@
   "enabledCssSnippets": [
     "syzygy-theme"
   ],
-  "baseTheme": "obsidian",
   "monospaceFontFamily": "JetBrains Mono, Fira Code, Cascadia Code, monospace",
   "textFontFamily": "Inter, -apple-system, sans-serif",
   "interfaceFontFamily": "Inter, -apple-system, sans-serif",

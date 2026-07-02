@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "conversations": [
+    {
+      "id": "tab-1782958481505-1",
+      "title": "create a visual layout of the system",
+      "updatedAt": 1782958552223,
+      "messages": [
+        {
+          "role": "user",
+          "content": "create a visual layout of the system"
+        },
+        {
+          "role": "assistant",
+          "content": "[error] invalid model name"
+        },
+        {
+          "role": "user",
+          "content": "hello"
+        },
+        {
+          "role": "assistant",
+          "content": "[error] model 'Ornith:0b-256k' not found"
+        }
+      ]
+    }
+  ]
+}

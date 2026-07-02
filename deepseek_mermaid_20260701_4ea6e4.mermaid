@@ -1,0 +1,49 @@
+flowchart TD
+    subgraph Hardware[Ubuntu 26.04 / AMD RX 9060 XT 16GB]
+        ROCm[ROCm 7.2] --> GPU[GPU Inference]
+    end
+
+    subgraph AgentCore[The Nova Agent Daemon (systemd)]
+        direction LR
+        Loop[Persistent OODA Loop<br>~/.nova-agent/agent.py]
+        Startup[Startup Sequence<br>Reads Timeline + Daily Note]
+        Tools[Tool Registry<br>vault_ops / memory_search / chat]
+        
+        Loop --> Startup
+        Loop --> Tools
+    end
+
+    subgraph Context[Living Memory]
+        Obsidian[(Obsidian Vault<br>Semantic / Human State)]
+        LanceDB[(LanceDB<br>Episodic / Vector Memory)]
+    end
+
+    subgraph DashboardControl[NovaHub Dashboard (Port 3000)]
+        UI[React UI]
+        API[API Routes<br>/agent/status /agent/chat /memory/query]
+        WS[WebSocket<br>Real-time Logs]
+    end
+
+    subgraph InferenceBackend[Ollama Backend (Port 11434)]
+        LLM[Chat: qwen3:8b]
+        Embed[Embed: nomic-embed-text]
+    end
+
+    %% INTEGRATION EDGES
+    DashboardControl -->|HTTP/WS Commands| AgentCore
+    AgentCore -->|Reads/State Sync| Obsidian
+    AgentCore -->|Vector RAG| LanceDB
+    AgentCore -->|Inference Calls| InferenceBackend
+
+    AgentCore -->|Logs completions/errors| Obsidian
+    AgentCore -->|Indexes conversation| LanceDB
+    AgentCore -->|Sends status/thinking stream| DashboardControl
+    
+    %% Feedback loop
+    Obsidian -.->|Git Auto-commit trigger| AgentCore
+
+    style Hardware fill:#0D1117,stroke:#F5C542,color:#E6EDF3
+    style AgentCore fill:#0D1117,stroke:#3DD6C8,color:#E6EDF3
+    style Context fill:#0D1117,stroke:#F5C542,color:#E6EDF3
+    style DashboardControl fill:#0D1117,stroke:#3DD6C8,color:#E6EDF3
+    style InferenceBackend fill:#0D1117,stroke:#F5C542,color:#E6EDF3

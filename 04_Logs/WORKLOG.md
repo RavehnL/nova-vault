@@ -2,7 +2,7 @@
 type: worklog
 date: 2026-07-01
 status: active
-current_session: NR-016
+current_session: NR-020
 ---
 
 # Nova Project Worklog
@@ -230,18 +230,86 @@ Persistent session log — tracks every NR report across all days.
 
 ---
 
+### NR-018 — NovaHub Wired to Vault DB
+**Time**: ~21:00
+**Status**: Completed
+**Detail**: NovaHub dashboard fully wired to sovereign vault DB. Prisma schema timestamps fixed.
+**Outcomes**:
+  - `.env` DATABASE_URL re-pointed to `/home/bo/nova-vault/99_Meta/nova.db`
+  - Prisma schema: `createdAt Int @default(0)` → `DateTime @default(now())`, `updatedAt Int @default(0)` → `DateTime @updatedAt`
+  - `prisma db push --accept-data-loss` succeeded
+  - Vault DB reconciled via Python/sqlite3 — Milestone/Agent/Service data corrected (Ollama port :11434, Hermes→nova-tools)
+  - Dashboard footer hardcoded path fixed, `latestNr()` updated to 18
+  - Git snapshot at novahub: `3028d90` — NR-018
+  - Over-engineering audit completed: ~45 lines removable, 1 unused dependency, 4 dead Prisma enums
+
+---
+
+### NR-019 — Timeline Reconciliation & Prisma Enum Fix
+**Time**: ~22:00
+**Status**: Completed
+**Detail**: Prisma enum mismatch fixed, SprintDay/MilestoneTask data reconciled to reflect current reality.
+**Outcomes**:
+  - Prisma schema enums realigned: `ACTIVE/OFFLINE/COMPLETE` → `active/offline/completed` to match DB values
+  - SprintDay: 11 rows updated — stale Hermes/VSCodium/Dual-Ollama references replaced with actual nova-tools content
+  - MilestoneTask: M1/M2/M4 all tasks → `completed`; M3 in_progress→completed (3 tasks); M6 not_started→completed (3 tasks)
+  - Day 21 status: `not_started` → `in_progress` (Memory+Dashboard live, Kokoro deferred)
+  - Zero Hermes references remaining across SprintDay and MilestoneTask tables
+  - Nova_Timeline.md synced to DB — weeks 1-4 checkboxes, titles, Current Status section
+  - Dashboard live at localhost:3000 — all API endpoints returning 200 with reconciled data
+
+---
+
+### NR-020 — NovaHub Systemd Service + Startup Guide
+**Time**: ~22:30
+**Status**: Completed
+**Detail**: NovaHub registered as systemd user service for auto-start on boot. Hermes dead service cleaned up. Startup guide written.
+**Outcomes**:
+  - `~/.config/systemd/user/novahub.service` created — runs `next dev -p 3000`, enabled at boot
+  - `hermes-gateway.service` disabled and removed from boot — no longer shadows systemd
+  - `00_System/Startup_Guide.md` written — cold-boot procedure, auto-start table, manual tools, troubleshooting
+  - `99_Meta/Vault_Index.md` updated with Startup_Guide entry
+  - After reboot: just open `localhost:3000` — no manual service starts needed
+
+---
+
+### NR-021 — Big Pickle Buildout: MCP Server + Dashboard Tiers 1+2 + Central Config
+**Time**: ~23:00
+**Status**: Completed
+**Detail**: Full Big Pickle implementation — MCP server, FastAPI sidecar, central config, systemd services, 8 new NovaHub tabs, plugins, RAG, TTS.
+**Outcomes**:
+  - `~/.nova/config.yaml` created — single source of truth for ollama endpoint, models, vault root, lancedb path, ports
+  - `vault_operations.py` + `index_memory.py` updated to read from central config instead of hardcoded values
+  - `mcp_server.py` created — MCP SSE server on port 8765, 4 tools (vault_read/write/append, semantic_search) + auto-discoverable plugin system
+  - `nova_api.py` created — FastAPI sidecar on port 8766 with 15 endpoints (system stats, ollama proxy, vault ops, streaming chat, semantic search, NR parsing, RAG index/query, TTS)
+  - `nova-tools.service` + `nova-api.service` — systemd user services, both enabled at boot
+  - `plugins/calculator.py` + `plugins/datetime_.py` — 2 starter plugins auto-loaded by MCP server
+  - NovaHub expanded from 6 to 14 tabs: System, Models, Chat, Daily, Search, Vault, NR, RAG
+  - System Monitor: GPU temp, CPU load, RAM/disk bars, polls every 5s
+  - Ollama Panel: model list table with pull/load/unload/delete buttons
+  - Quick Chat: streaming SSE chat with qwen3:8b via Ollama /v1/chat/completions
+  - Daily Note: auto-detects today's date, reads 01_Daily/YYYY-MM-DD.md, append mode
+  - Semantic Search: vector search via LanceDB, shows similarity score + source path
+  - Vault Browser: tree view + file editor with path-traversal protection
+  - NR Viewer: parses WORKLOG.md, filterable table with expandable detail rows
+  - RAG Panel: index all vault .md files, query with context injection, grounded answers
+  - TTS Briefing: espeak-ng generates audio of today's daily log
+  - `deploy.sh` — one-command redeploy script
+
+---
+
 ## Key Metrics
 
 | Metric | Value |
 |---|---|---|
-| Sessions | 1 (Day 1 + Day 2 continued) |
-| NR Reports | 18 (NR-000 through NR-017) |
-| Git Commits | 10 (initial + NR reports — no new commits Day 2) |
-| Files in Vault | 30+ (all sections) |
+| Sessions | 3 (Day 1 + Day 2 continued + Big Pickle) |
+| NR Reports | 22 (NR-000 through NR-021) |
+| Git Commits | 13 (11 vault + 2 novahub) |
+| Files in Vault | 40+ (all sections + nova-tools Python stack) |
 | ROCm VRAM | 16GB GDDR6 (15.8 GiB available) |
 | Ollama Version | v0.31.1 (ROCm 7.2 GPU backend) |
-| Models | tinyllama (637MB) + qwen3:8b (5.2 GB) + nomic-embed-text (274MB) — all inferring on GPU |
-| Services | Ollama (11434) ✅, NovaHub (wiring needed), UFW ✅ |
-| Free Disk | ~828 GB |
-| Dashboard Status | 🔧 Reference received — needs DB path rewire to vault |
-| Agent Stack | ✅ nova-tools (LanceDB + vault_operations) at ~/nova-tools/ |
+| Models | tinyllama + qwen3:8b + nomic-embed-text + ornith:9b + ornith:9b-256k — all GPU |
+| Services | Ollama (11434) ✅, NovaHub (3000) ✅, nova-tools MCP (8765) ✅, nova-api (8766) ✅, UFW ✅ |
+| Free Disk | ~876 GB |
+| Dashboard Status | ✅ 14 tabs live at localhost:3000 — all API endpoints verified |
+| Agent Stack | ✅ nova-tools (MCP :8765, API :8766, config, plugins) at ~/nova-tools/ |
